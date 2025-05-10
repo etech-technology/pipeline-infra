@@ -71,21 +71,21 @@ resource "aws_instance" "web" {
   }
 }
 
-resource "aws_db_instance" "mysql" {
-  allocated_storage    = 20
-  engine               = "mysql"
-  engine_version       = "8.0"
-  instance_class       = "db.t3.micro"
-  db_name              = "etechbackend"
-  username             = "admin"
-  password             = var.db_password
-  skip_final_snapshot  = true
-  publicly_accessible  = true
-  vpc_security_group_ids = [aws_security_group.allow_ssh_mysql.id]
-  db_subnet_group_name = aws_db_subnet_group.dbsubnet.name
-}
+# resource "aws_db_instance" "mysql" {
+#   allocated_storage    = 20
+#   engine               = "mysql"
+#   engine_version       = "8.0"
+#   instance_class       = "db.t3.micro"
+#   db_name              = "etechbackend"
+#   username             = "admin"
+#   password             = var.db_password
+#   skip_final_snapshot  = true
+#   publicly_accessible  = true
+#   vpc_security_group_ids = [aws_security_group.allow_ssh_mysql.id]
+#   db_subnet_group_name = aws_db_subnet_group.dbsubnet.name
+# }
 
-resource "aws_db_subnet_group" "dbsubnet" {
-  name       = "main-db-subnet"
-  subnet_ids = [aws_subnet.public.id]
-}
+# resource "aws_db_subnet_group" "dbsubnet" {
+#   name       = "main-db-subnet"
+#   subnet_ids = [aws_subnet.public.id]
+# }
